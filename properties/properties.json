@@ -1,0 +1,26 @@
+{
+  "local": {
+    "base_url": "http://dev.int.loc.mfine.co"
+  },
+  "development": {
+    "base_url": "http://dev.int.loc.mfine.co"
+  },
+  "preqa": {
+    "base_url": "http://preqa.int.mfine.co"
+  },
+  "staging": {
+    "base_url": "http://staging.loc.int.mfine.co"
+  },
+  "qa": {
+    "base_url": "http://elb.loc.int.qa.mfine.int"
+  },
+  "beta": {
+    "base_url": "http://beta.loc.int.mfine.co"
+  },
+  "production": {
+    "base_url": "http://elb.loc.int.mfine.int"
+  },
+  "productionops": {
+    "base_url": "http://elb.loc.int.mfine.int"
+  }
+}
