@@ -37,8 +37,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-settings = Settings(_env_file='.env')
 
+settings = Settings(_env_file='.env')
+logger.info("Parsing the settings is completed !!")
 
 @app.get("/info")
 def info():

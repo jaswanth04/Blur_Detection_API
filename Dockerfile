@@ -1,4 +1,4 @@
-FROM python:3.10-slim
+FROM python:3.11-slim
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     bzip2 \
@@ -16,19 +16,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN apt-get update
 RUN apt-get install poppler-utils -y
 
-ARG APP_HOME="/local/services"
-ARG PROJECT_NAME="turnstile"
-ARG PROJECT_PATH="${APP_HOME}/${PROJECT_NAME}"
-WORKDIR ${PROJECT_PATH}
+WORKDIR /app
 
-COPY ./${PROJECT_NAME}/requirements.txt ${PROJECT_PATH}/
+COPY ./requirements.txt /app/
 RUN pip install -r requirements.txt
+RUN pip install pydantic-settings
 
-ARG env
-
-COPY ./${PROJECT_NAME}/src/ ${PROJECT_PATH}/
-COPY ./${PROJECT_NAME}/main.py ${PROJECT_PATH}/
-COPY ./${PROJECT_NAME}/.env ${PROJECT_PATH}/
-COPY ./${PROJECT_NAME}/properties ${PROJECT_PATH}/properties/
+COPY ./src /app/
+COPY ./main.py /app/
+COPY ./.env /app/
 
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0",  "--port", "9030"]
