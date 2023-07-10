@@ -44,8 +44,11 @@ The api will be poiting to http://localhost:9030/
 We have the following endpoints:
 
 GET /info - Provides the settings
-GET /ping - Provides the health
-POST /check_blur - Parameters - file (Type is file) - Select the image file to be given as input; return_score: Boolean value to say whether score needs to be returned or not
+
+GET /ping - Provides the health  
+
+POST /check_blur - Parameters - file (Type is file) - Select the image file to be given as input; return_score: Boolean value to say whether score needs to be returned or not  
+
 
 ## Configuration
 
